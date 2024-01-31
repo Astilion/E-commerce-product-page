@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.prettierignore
+*.xd
+*.sketch
+*.fig
+/design
+/images
