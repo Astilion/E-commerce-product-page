@@ -1,9 +1,11 @@
-
+import Navigation from "./components/Header"
 function App() {
+
 
 
   return (
     <>
+    <Navigation/>
 
 Collections
   Men
