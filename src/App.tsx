@@ -1,4 +1,4 @@
-import Navigation from "./components/Header"
+import Navigation from "./components/Header/Header"
 function App() {
 
 
@@ -7,7 +7,7 @@ function App() {
     <>
     <Navigation/>
 
-Collections
+    Collections
   Men
   Women
   About
