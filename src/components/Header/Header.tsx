@@ -7,7 +7,7 @@ export default function Navigation() {
 	return (
 		<>
 			<div className='h-24 lg:h-28'></div>
-			<header className='fixed top-0 left-0 right-0 flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4'>
+			<header className='fixed top-0 left-0 right-0 mx-auto flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4'>
 				<div className='flex justify-center items-center gap-4'>
 					<BurgerMenu />
 					<Logo />
