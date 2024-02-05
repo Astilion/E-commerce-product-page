@@ -18,12 +18,12 @@ export default function MobileNav({
 	return (
 		<nav>
 			<div
-				className={`${bgClasses} absolute top-0 left-0 h-screen-small transition-transform w-2/3 bg-white `}></div>
+				className={`${bgClasses} absolute top-0 left-0 h-screen-small duration-300 w-2/3 bg-white `}></div>
 			<div
-				className={` ${backdropClasses} absolute top-0 right-0 h-screen-small duration-300 opacity-75 bg-black w-1/3`}
+				className={` ${backdropClasses} absolute top-0 right-0 h-screen-small duration-500 opacity-75 bg-black w-1/3`}
 				onClick={hideNav}></div>
 
-			<NavList />
+			<NavList isActive={mobileNavIsActive} />
 		</nav>
 	);
 }

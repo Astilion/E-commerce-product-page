@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import cartIcon from "../../assets/icon-cart.svg";
 import BurgerMenu from "./BurgerMenu";
 import DesktopNav from "./Navigation/DesktopNav";
-import MobileNav from "./Navigation/MobileNav"
+import MobileNav from "./Navigation/MobileNav";
 import avatar from "../../assets/image-avatar.png";
 export default function Header() {
 	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
@@ -19,13 +19,20 @@ export default function Header() {
 		setMobileNavIsActive(false);
 	};
 
+	const headerClasses =
+		"fixed top-0 left-0 right-0 mx-auto flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4";
 	return (
 		<>
 			<div className='h-24 lg:h-28'></div>
-			<header className='fixed top-0 left-0 right-0 mx-auto flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4'>
+			<header className={headerClasses}>
 				<div className='flex justify-center items-center gap-4'>
 					<BurgerMenu onClick={showMobileNavHandler} />
-					{isMobile && <MobileNav mobileNavIsActive={mobileNavIsActive} hideNav={hideMobileNavHandler}  />}
+					{isMobile && (
+						<MobileNav
+							mobileNavIsActive={mobileNavIsActive}
+							hideNav={hideMobileNavHandler}
+						/>
+					)}
 					<Logo />
 
 					{!isMobile && <DesktopNav />}
