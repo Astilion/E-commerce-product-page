@@ -15,8 +15,8 @@ export default function NavList() {
 		"lg:pb-[39px] lg:px-2 lg:py-2 lg:border-b-4 lg:hover:border-orange-400 lg:hover:text-black lg:text-slate-700 transition";
 	return (
 		<ul className='ml-10 lg:flex gap-4'>
-			{navNames.map(name => (
-				<li>
+			{navNames.map((name, index) => (
+				<li key={index}>
 					<a href='#' className={anchorClasses}>
 						{capitalizeFirstLetter(name)}
 					</a>
