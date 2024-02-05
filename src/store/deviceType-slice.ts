@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface deviceTypeState {
+	isMobile: boolean;
+}
+
+const initialState: deviceTypeState = {
 	isMobile: window.innerWidth < 1024 ? true : false,
 };
 

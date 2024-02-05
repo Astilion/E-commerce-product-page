@@ -1,7 +1,14 @@
 import menu from "../../assets/icon-menu.svg";
-export default function BurgerMenu() {
+
+interface BurgerMenuProps {
+	onClick: () => void;
+}
+export default function BurgerMenu({ onClick }: BurgerMenuProps) {
 	return (
-		<button className='lg:hidden bg-transparent border-none px-2 py-1 z-10'>
+		<button
+			onClick={onClick}
+			aria-label='Navigation menu'
+			className='lg:hidden bg-transparent border-none px-2 py-1 z-10'>
 			<img src={menu} alt='Menu' />
 		</button>
 	);
