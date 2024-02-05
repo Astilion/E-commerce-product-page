@@ -26,7 +26,7 @@ export default function Header() {
 			<div className='h-24 lg:h-28'></div>
 			<header className={headerClasses}>
 				<div className='flex justify-center items-center gap-4'>
-					<BurgerMenu onClick={showMobileNavHandler} />
+					<BurgerMenu onClick={showMobileNavHandler } mobileNavIsActive={mobileNavIsActive} />
 					{isMobile && (
 						<MobileNav
 							mobileNavIsActive={mobileNavIsActive}
