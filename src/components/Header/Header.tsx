@@ -18,7 +18,6 @@ export default function Header() {
 	const hideMobileNavHandler = () => {
 		setMobileNavIsActive(false);
 	};
-
 	const headerClasses =
 		"fixed top-0 left-0 right-0 mx-auto flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4";
 	return (

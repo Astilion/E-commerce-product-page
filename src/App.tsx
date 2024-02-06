@@ -7,7 +7,7 @@ function App() {
 
 	useEffect(() => {
 		const detectDeviceHandler = () => {
-			const isMobile = window.innerWidth < 992 ? true : false;
+			const isMobile = window.innerWidth < 1024 ? true : false;
 
 			dispatch(deviceTypeActions.detectDeviceType(isMobile));
 		};

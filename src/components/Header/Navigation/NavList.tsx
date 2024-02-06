@@ -19,7 +19,7 @@ export default function NavList({ isActive }: NavListProps) {
 	];
 
 	const anchorClasses =
-		"lg:pb-[39px] lg:px-2 lg:py-2 lg:border-b-4  lg:relative  lg:hover:border-orange-400 lg:hover:text-black lg:text-slate-700 transition lg:inline z-100";
+		"py-2  px-4 font-bold lg:pb-[39px] lg:px-2 lg:py-2 lg:border-b-4  lg:relative lg:ml-4  lg:hover:border-orange-400 hover:text-black text-slate-700 transition lg:inline z-100";
 
 	const mobileUlClasses = isMobile
 		? "flex absolute mt-14 flex-col gap-4 duration-300"
