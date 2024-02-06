@@ -3,6 +3,7 @@ import { useState } from "react";
 import { RootState } from "../../store/store";
 
 import Logo from "./Logo";
+import Cart from "./cart/Cart";
 import cartIcon from "../../assets/icon-cart.svg";
 import BurgerMenu from "./BurgerMenu";
 import DesktopNav from "./Navigation/DesktopNav";
@@ -42,6 +43,7 @@ export default function Header() {
 						<button>
 							<img src={cartIcon} alt='Cart' />
 						</button>
+						<Cart/>
 					</div>
 					<div className=' full w-max'>
 						<button className='py-1 px-3'>

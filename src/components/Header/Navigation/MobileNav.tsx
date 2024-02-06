@@ -16,7 +16,7 @@ export default function MobileNav({
 		? "translate-x-[0px]"
 		: "translate-x-[300%]";
 	return (
-		<nav>
+		<nav className="z-40">
 			<div
 				className={`${bgClasses} absolute top-0 left-0 h-screen-small duration-300 w-2/3 bg-white `}></div>
 			<div
