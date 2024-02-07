@@ -1,6 +1,7 @@
 import img from "../../../assets/image-product-1-thumbnail.jpg";
 import trash from "../../../assets/icon-delete.svg";
 export default function Cart() {
+	
 	return (
 		<section className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2'>
 			<h2 className='px-4 pt-1 pb-4 self-start font-bold '>Cart</h2>
@@ -31,6 +32,9 @@ export default function Cart() {
 					</div>
 				</li>
 			</ul>
+			<button className='bg-orange-500 text-white rounded-md w-[80%] mx-auto h-12 my-4 hover:bg-orange-400 duration-200'>
+				Checkout
+			</button>
 		</section>
 	);
 }
