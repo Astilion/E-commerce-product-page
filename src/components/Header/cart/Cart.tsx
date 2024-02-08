@@ -43,6 +43,9 @@ export default function Cart() {
 			<button className='bg-orange-500 text-white rounded-md w-[80%] mx-auto h-12 my-4 hover:bg-orange-400 duration-200'>
 				Checkout
 			</button>
+			{/* <div className="flex justify-center items-center font-bold h-[168px]">
+				<h3 className="text-slate-500 font bold">Your cart is empty</h3>
+			</div> */}
 		</motion.section>
 	);
 }
