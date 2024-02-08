@@ -3,16 +3,14 @@ import { useState } from "react";
 import { RootState } from "../../store/store";
 
 import Logo from "./Logo";
-import Cart from "./cart/Cart";
-import cartIcon from "../../assets/icon-cart.svg";
 import BurgerMenu from "./BurgerMenu";
 import DesktopNav from "./Navigation/DesktopNav";
 import MobileNav from "./Navigation/MobileNav";
-import avatar from "../../assets/image-avatar.png";
+import UserProfileButton from "./UserProfileButton";
+import CartButton from "./CartButton";
 export default function Header() {
 	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
 	const [mobileNavIsActive, setMobileNavIsActive] = useState(false);
-	const [cartIsOpen, setCartIsOpen] = useState(false);
 
 	const showMobileNavHandler = () => {
 		setMobileNavIsActive(prev => !prev);
@@ -20,9 +18,7 @@ export default function Header() {
 	const hideMobileNavHandler = () => {
 		setMobileNavIsActive(false);
 	};
-	const toggleCart = () => {
-		setCartIsOpen(prev => !prev);
-	};
+
 	const headerClasses =
 		"fixed top-0 left-0 right-0 mx-auto flex justify-between w-full p-4 lg:px-12 lg:py-4 max-w-7xl  z-50 items-center border-b-4";
 	return (
@@ -45,21 +41,8 @@ export default function Header() {
 				</div>
 
 				<div className='flex justify-center items-center gap-4'>
-					<div>
-						<button className='p-2' onClick={toggleCart}>
-							<img src={cartIcon} alt='Cart' />
-						</button>
-						{cartIsOpen && <Cart />}
-					</div>
-					<div className=' full w-max'>
-						<button className='py-1 px-3'>
-							<img
-								src={avatar}
-								className='w-10 lg:w-14 border-solid border-transparent border-2 rounded-full hover:border-orange-400 hover:border-[3px] transition'
-								alt='User Profile'
-							/>
-						</button>
-					</div>
+					<CartButton />
+					<UserProfileButton />
 				</div>
 			</header>
 		</>
