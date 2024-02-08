@@ -1,9 +1,17 @@
 import img from "../../../assets/image-product-1-thumbnail.jpg";
 import trash from "../../../assets/icon-delete.svg";
+import { motion } from "framer-motion";
+
 export default function Cart() {
-	
 	return (
-		<section className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2'>
+		<motion.section
+			className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2'
+			variants={{
+				hidden: { opacity: 0, y: -30 },
+				visible: { opacity: 1, y: 0 },
+			}}
+			initial='hidden'
+			animate='visible'>
 			<h2 className='px-4 pt-1 pb-4 self-start font-bold '>Cart</h2>
 			<span className='h-[1px] w-full bg-slate-500'></span>
 
@@ -35,6 +43,6 @@ export default function Cart() {
 			<button className='bg-orange-500 text-white rounded-md w-[80%] mx-auto h-12 my-4 hover:bg-orange-400 duration-200'>
 				Checkout
 			</button>
-		</section>
+		</motion.section>
 	);
 }
