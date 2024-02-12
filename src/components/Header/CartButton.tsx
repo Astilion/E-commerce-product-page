@@ -10,7 +10,9 @@ export default function CartButton() {
 
 	return (
 		<div>
-			<button className='p-2' onClick={toggleCart}>
+			<button
+				className='p-2 '
+				onClick={toggleCart}>
 				<img src={cartIcon} alt='Cart' />
 			</button>
 			{cartIsOpen && <Cart />}

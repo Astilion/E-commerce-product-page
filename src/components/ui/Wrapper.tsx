@@ -5,7 +5,7 @@ interface WrapperProps {
 }
 
 export default function Wrapper({children}: WrapperProps) {
-	return <main className='max-w-7xl mx-auto'>
+	return <main className='max-w-7xl mx-auto lg:grid lg:grid-cols-2 gap-8'>
         {children}
     </main>;
 }
