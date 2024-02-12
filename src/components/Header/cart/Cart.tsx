@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Cart() {
 	return (
 		<motion.section
-			className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2'
+			className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2 bg-white'
 			variants={{
 				hidden: { opacity: 0, y: -30 },
 				visible: { opacity: 1, y: 0 },
