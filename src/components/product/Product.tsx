@@ -1,5 +1,5 @@
 
-import ProductDetailsSection from "./productDetailSection/ProductDetailsSection";
+import ProductDetailsSection from "./product-detail-section/ProductDetailsSection";
 
 export default function Product() {
 	return (
