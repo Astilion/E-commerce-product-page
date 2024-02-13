@@ -40,7 +40,7 @@ export default function Product() {
 	return (
 		<>
 			<section>
-				<div className='w-full relative overflow-hidden lg:rounded-2xl'>
+				<div className='w-full relative overflow-hidden lg:rounded-2xl '>
 					{isMobile && (
 						<>
 							<button
@@ -63,7 +63,7 @@ export default function Product() {
 					)}
 
 					<div
-						className='flex w-full h-full duration-300 ease-in-out'
+						className='flex w-full h-full duration-300 ease-in-out '
 						style={{ translate: `${-100 * imageIndex}%` }}>
 						{IMAGES.map(url => (
 							<img src={url} key={url} className='' alt='Current Image' />
