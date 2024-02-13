@@ -4,7 +4,7 @@ import ProductQuantityControl from "./ProductQuantityControl";
 import cartIcon from '../../../assets/icon-cart-white.svg'
 
 export default function ProductDetailSection() {
-	return <section className='p-6 lg:p-10 flex flex-col lg:justify-center '>
+	return <section className='p-6 lg:p-10 flex flex-col lg:justify-center lg:mb-40'>
         <ProductDetails/>
         <ProductPricing/>
         <div className="lg:flex lg:gap-4">
