@@ -3,6 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Product {
 	id: string;
 	quantity: number;
+	price: number;
+	name: string;
 }
 interface CartState {
 	totalQuantity: number;
@@ -20,15 +22,15 @@ const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addProductToCart(state, action: PayloadAction<Product>) {
-			const productIndex = state.products.findIndex(
+			const existingProduct = state.products.findIndex(
 				product => product.id === action.payload.id
 			);
 
 			state.totalQuantity += action.payload.quantity;
 
-			if (productIndex !== -1) {
+			if (existingProduct !== -1) {
 				// If product already exists, update the quantity
-				state.products[productIndex].quantity += action.payload.quantity;
+				state.products[existingProduct].quantity += action.payload.quantity;
 			} else {
 				// If product doesn't exist, add it to the cart
 				state.products.push(action.payload);
