@@ -16,7 +16,12 @@ import thumbnailImg3 from "../../../assets/image-product-3-thumbnail.jpg";
 import thumbnailImg4 from "../../../assets/image-product-4-thumbnail.jpg";
 
 const IMAGES = [productImg1, productImg2, productImg3, productImg4];
-const THUMBNAILS = [thumbnailImg1, thumbnailImg2, thumbnailImg3, thumbnailImg4];
+export const THUMBNAILS = [
+	thumbnailImg1,
+	thumbnailImg2,
+	thumbnailImg3,
+	thumbnailImg4,
+];
 export default function ImageSection() {
 	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
 

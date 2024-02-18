@@ -5,6 +5,7 @@ interface Product {
 	quantity: number;
 	price: number;
 	name: string;
+	imgUrl: string;
 }
 interface CartState {
 	totalQuantity: number;

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { calculateTotalPrice } from "../../../utils/priceUtils";
+import { THUMBNAILS } from "../images-section/ImageSection";
 
 export default function ProductDetailSection() {
 	const [itemQuantity, setItemQuantity] = useState(0);
@@ -24,6 +25,7 @@ export default function ProductDetailSection() {
 				name: productDetails.name,
 				price: pricing.discount ? totalPrice : pricing.price,
 				quantity: itemQuantity,
+				imgUrl: THUMBNAILS[0],
 			})
 		);
 	};
