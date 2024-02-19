@@ -22,7 +22,7 @@ export default function CartButton() {
 
       const timeout = setTimeout(() => {
         setAnimate(false);
-      }, 1000);
+      }, 300);
 
       return () => clearTimeout(timeout);
     }
