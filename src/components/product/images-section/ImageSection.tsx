@@ -56,6 +56,7 @@ export default function ImageSection() {
 				<ThumbnailList
 					thumbnails={THUMBNAILS}
 					onThumbnailClick={changeImageHandler}
+					activeIndex={imageIndex}
 				/>
 			)}
 		</section>
