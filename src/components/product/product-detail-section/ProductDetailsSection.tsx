@@ -9,7 +9,7 @@ import { calculateTotalPrice } from "../../../utils/priceUtils";
 import { THUMBNAILS } from "../images-section/ImageSection";
 
 export default function ProductDetailSection() {
-	const [itemQuantity, setItemQuantity] = useState(0);
+	const [itemQuantity, setItemQuantity] = useState(1);
 	const dispatch = useDispatch();
 	const incrementQuantity = () =>
 		setItemQuantity(prevQuantity => prevQuantity + 1);
@@ -30,6 +30,7 @@ export default function ProductDetailSection() {
 				})
 			);
 		}
+		setItemQuantity(1)
 	};
 	return (
 		<section className='p-6 lg:p-10 flex flex-col lg:justify-center lg:mb-40'>
