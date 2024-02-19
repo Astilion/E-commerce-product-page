@@ -19,15 +19,17 @@ export default function ProductDetailSection() {
 	const totalPrice = calculateTotalPrice(pricing.price, pricing.discount);
 
 	const handleAddToCart = () => {
-		dispatch(
-			cartActions.addProductToCart({
-				id: productDetails.name,
-				name: productDetails.name,
-				price: pricing.discount ? totalPrice : pricing.price,
-				quantity: itemQuantity,
-				imgUrl: THUMBNAILS[0],
-			})
-		);
+		if (itemQuantity > 0) {
+			dispatch(
+				cartActions.addProductToCart({
+					id: productDetails.name,
+					name: productDetails.name,
+					price: pricing.discount ? totalPrice : pricing.price,
+					quantity: itemQuantity,
+					imgUrl: THUMBNAILS[0],
+				})
+			);
+		}
 	};
 	return (
 		<section className='p-6 lg:p-10 flex flex-col lg:justify-center lg:mb-40'>
