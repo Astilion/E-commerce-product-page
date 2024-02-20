@@ -8,6 +8,11 @@ export default {
 				"screen-small": "100svh",
 				"screen-large": "100lvh",
 			},
+			width: {
+				"screen": "100dvh",
+				"screen-small": "100svh",
+				"screen-large": "100lvh",
+			},
 		},
 	},
 	plugins: [],
