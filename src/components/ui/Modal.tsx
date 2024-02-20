@@ -11,10 +11,10 @@ export default function Modal({ onClose, children }: ModalProps) {
 	return createPortal(
 		<>
 			<div
-				className='bg-black opacity-75 top-0 left-0 w-screen-small lg:w-screen-large z-50'
+				className='fixed bg-black opacity-75 top-0 left-0 w-screen-small h-screen-small lg:h-screen-large lg:w-screen-large z-[80]'
 				onClick={onClose}></div>
 
-			<section className='flex items-center justify-center'>{children}</section>
+			<section className='flex items-center justify-center h-full absolute w-full'>{children}</section>
 		</>,
 		modalRoot
 	);

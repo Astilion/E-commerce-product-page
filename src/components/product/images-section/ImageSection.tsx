@@ -14,6 +14,7 @@ import thumbnailImg1 from "../../../assets/image-product-1-thumbnail.jpg";
 import thumbnailImg2 from "../../../assets/image-product-2-thumbnail.jpg";
 import thumbnailImg3 from "../../../assets/image-product-3-thumbnail.jpg";
 import thumbnailImg4 from "../../../assets/image-product-4-thumbnail.jpg";
+import GalleryPopup from "./GalleryPopup";
 
 const IMAGES = [productImg1, productImg2, productImg3, productImg4];
 export const THUMBNAILS = [
@@ -26,6 +27,7 @@ export default function ImageSection() {
 	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
 
 	const [imageIndex, setImageIndex] = useState(0);
+	const [popupIsVisible, setPopupVisible] = useState(false);
 
 	const nextImageHandler = () => {
 		setImageIndex(prevIndex =>
@@ -41,17 +43,35 @@ export default function ImageSection() {
 	const changeImageHandler = (index: number) => {
 		setImageIndex(index);
 	};
+
+	const hidePopupHandler = () => {
+		setPopupVisible(false);
+	};
+	const showPopupHandler = () => {
+		!isMobile && setPopupVisible(true);
+	};
 	return (
 		<section>
-			<div className='w-full relative overflow-hidden lg:rounded-2xl '>
-				{isMobile && (
-					<>
-						<PrevButton onClick={prevImageHandler} />
-						<NextButton onClick={nextImageHandler} />
-					</>
-				)}
-				<ImageSlider images={IMAGES} currentIndex={imageIndex} />
-			</div>
+			{!isMobile && popupIsVisible && (
+				<GalleryPopup
+					images={IMAGES}
+					prevImageHandler={prevImageHandler}
+					nextImageHandler={nextImageHandler}
+					currentIndex={imageIndex}
+					onClose={hidePopupHandler}
+				/>
+			)}
+			<button aria-label='Show product carousel' onClick={showPopupHandler}>
+				<div className='w-full relative overflow-hidden lg:rounded-2xl '>
+					{isMobile && (
+						<>
+							<PrevButton onClick={prevImageHandler} />
+							<NextButton onClick={nextImageHandler} />
+						</>
+					)}
+					<ImageSlider images={IMAGES} currentIndex={imageIndex} />
+				</div>
+			</button>
 			{!isMobile && (
 				<ThumbnailList
 					thumbnails={THUMBNAILS}
