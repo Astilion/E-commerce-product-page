@@ -29,11 +29,11 @@ export default function GalleryPopup({
 	return (
 		<Modal onClose={onClose}>
 			<div className='flex w-full justify-center items-center lg:rounded-2xl z-[90]'>
-				<div className='absolute flex w-[60%] xl:w-[40%] 2xl:w-[30%]'>
+				<div className='absolute flex w-[60%] xl:w-[40%] 2xl:w-[33%]'>
 					<PrevButton onClick={prevImageHandler} />
 					<NextButton onClick={nextImageHandler} />
 				</div>
-				<div className='relative flex w-[60%] xl:w-[40%] 2xl:w-[30%] '>
+				<div className='relative flex w-[60%] xl:w-[40%] 2xl:w-[33%] '>
 					<button
 						onClick={onClose}
 						aria-label='Close Gallery popup icon'
