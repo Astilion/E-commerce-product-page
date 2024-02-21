@@ -34,8 +34,11 @@ export default function GalleryPopup({
 					<NextButton onClick={nextImageHandler} />
 				</div>
 				<div className='relative flex w-[60%] xl:w-[40%] 2xl:w-[30%] '>
-					<button onClick={onClose} aria-label="Close Gallery popup icon" className='absolute -top-12 right-1 z-[90]  p-4'>
-						<CloseIcon iconColor={'white'}/>
+					<button
+						onClick={onClose}
+						aria-label='Close Gallery popup icon'
+						className='absolute -top-12 right-1 z-[90]  p-4'>
+						<CloseIcon iconColor={"white"} />
 					</button>
 					<div className='overflow-hidden rounded-2xl'>
 						<ImageSlider images={images} currentIndex={currentIndex} />

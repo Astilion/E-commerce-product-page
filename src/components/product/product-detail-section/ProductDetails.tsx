@@ -2,7 +2,7 @@ interface ProductDetails {
 	annotation: string;
 	name: string;
 	description: string;
-  }
+}
 export const productDetails = {
 	annotation: "SNEAKER COMPANY",
 	name: "Fall Limited Edition Sneakers",

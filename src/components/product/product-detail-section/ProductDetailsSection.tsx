@@ -30,7 +30,7 @@ export default function ProductDetailSection() {
 				})
 			);
 		}
-		setItemQuantity(1)
+		setItemQuantity(1);
 	};
 	return (
 		<section className='p-6 lg:p-10 flex flex-col lg:justify-center lg:mb-40'>

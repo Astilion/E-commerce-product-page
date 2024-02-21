@@ -64,7 +64,10 @@ export default function ImageSection() {
 					activeIndex={imageIndex}
 				/>
 			)}
-			<button aria-label='Show product carousel' className="cursor-default lg:cursor-pointer" onClick={showPopupHandler}>
+			<button
+				aria-label='Show product carousel'
+				className='cursor-default lg:cursor-pointer'
+				onClick={showPopupHandler}>
 				<div className='w-full relative overflow-hidden md:rounded-2xl '>
 					{isMobile && (
 						<>
