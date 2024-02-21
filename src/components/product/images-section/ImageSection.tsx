@@ -65,7 +65,7 @@ export default function ImageSection() {
 				/>
 			)}
 			<button aria-label='Show product carousel' onClick={showPopupHandler}>
-				<div className='w-full relative overflow-hidden lg:rounded-2xl '>
+				<div className='w-full relative overflow-hidden md:rounded-2xl '>
 					{isMobile && (
 						<>
 							<PrevButton onClick={prevImageHandler} />
