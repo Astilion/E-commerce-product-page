@@ -1,6 +1,5 @@
-import menu from "../../assets/icon-menu.svg";
-import close from "../../assets/icon-close.svg";
-
+import CloseIcon from "../ui/icons/CloseIcon";
+import BurgerIcon from "../ui/icons/BurgerIcon";
 interface BurgerMenuProps {
 	onClick: () => void;
 	mobileNavIsActive: boolean;
@@ -14,8 +13,8 @@ export default function BurgerMenu({
 			onClick={onClick}
 			aria-label='Navigation menu'
 			className='lg:hidden bg-transparent border-none px-2 py-1 z-50'>
-			{mobileNavIsActive && <img src={close} alt='Close menu' />}
-			{!mobileNavIsActive && <img src={menu} alt='Menu' />}
+			{mobileNavIsActive && <CloseIcon iconColor={"#69707D"} />}
+			{!mobileNavIsActive && <BurgerIcon iconColor={"69707D"} />}
 		</button>
 	);
 }

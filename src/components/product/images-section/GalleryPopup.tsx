@@ -2,8 +2,8 @@ import Modal from "../../ui/Modal";
 import NextButton from "./buttons/NextButton";
 import ImageSlider from "./ImageSlider";
 import PrevButton from "./buttons/PrevButton";
-import xIcon from "../../../assets/icon-close.svg";
 import ThumbnailList from "./ThumbnailList";
+import CloseIcon from "../../ui/icons/CloseIcon";
 
 interface GalleryPopupProps {
 	onClose: () => void;
@@ -29,13 +29,13 @@ export default function GalleryPopup({
 	return (
 		<Modal onClose={onClose}>
 			<div className='flex w-full justify-center items-center lg:rounded-2xl z-[90]'>
-				<div className=' absolute flex w-[60%] xl:w-[40%] 2xl:w-[30%]'>
+				<div className='absolute flex w-[60%] xl:w-[40%] 2xl:w-[30%]'>
 					<PrevButton onClick={prevImageHandler} />
 					<NextButton onClick={nextImageHandler} />
 				</div>
 				<div className='relative flex w-[60%] xl:w-[40%] 2xl:w-[30%] '>
-					<button onClick={onClose} className='absolute -top-10 right-5 z-[90] '>
-						<img src={xIcon} alt='' />
+					<button onClick={onClose} aria-label="Close Gallery popup icon" className='absolute -top-12 right-1 z-[90]  p-4'>
+						<CloseIcon iconColor={'white'}/>
 					</button>
 					<div className='overflow-hidden rounded-2xl'>
 						<ImageSlider images={images} currentIndex={currentIndex} />
