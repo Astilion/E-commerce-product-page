@@ -9,13 +9,15 @@ export default function ThumbnailList({
 	activeIndex,
 }: ThumbnailListProps) {
 	return (
-		<ul className='flex mt-8 gap-8'>
+		<ul className='flex mt-8 gap-8 z-[90]'>
 			{thumbnails.map((thumbnail, index) => (
 				<li key={index}>
 					<button
 						onClick={() => onThumbnailClick(index)}
 						className={`rounded-xl overflow-hidden hover:opacity-60 duration-150 ${
-							activeIndex === index ? "opacity-60" : ""
+							activeIndex === index
+								? "opacity-60  border-solid border-[2px] border-orange-500"
+								: ""
 						}`}>
 						<img src={thumbnail} alt={`thumbnail image #${index + 1}`} />
 					</button>

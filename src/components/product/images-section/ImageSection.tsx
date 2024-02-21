@@ -59,6 +59,9 @@ export default function ImageSection() {
 					nextImageHandler={nextImageHandler}
 					currentIndex={imageIndex}
 					onClose={hidePopupHandler}
+					thumbnails={THUMBNAILS}
+					onThumbnailClick={changeImageHandler}
+					activeIndex={imageIndex}
 				/>
 			)}
 			<button aria-label='Show product carousel' onClick={showPopupHandler}>
