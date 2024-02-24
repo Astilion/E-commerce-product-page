@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
+import { capitalizeFirstLetter } from "../../../utils/capitalizeFirstLetter";
 
 interface NavListProps {
 	isActive?: boolean;
 }
-const capitalizeFirstLetter = (word: string) => {
-	return word.charAt(0).toUpperCase() + word.slice(1);
-};
 
 export default function NavList({ isActive }: NavListProps) {
 	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
