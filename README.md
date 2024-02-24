@@ -107,7 +107,7 @@ Project is: _in-progress_
 
 Mateusz Kamiński - mkaminski.contact@gmail.com
 
-Project Link: [https://github.com/Astilion/ToDoApp](https://github.com/Astilion/ToDoApp)
+Project Link: [https://github.com/Astilion/E-commerce-product-page](https://github.com/Astilion/E-commerce-product-page)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
