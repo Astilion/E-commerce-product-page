@@ -1,15 +1,15 @@
-import { useSelector } from "react-redux";
 import { useState } from "react";
-import { RootState } from "../../store/store";
+import { useIsMobile } from "../../hooks/useMediaQuery";
 
 import Logo from "./Logo";
-import BurgerMenu from "./BurgerMenu";
-import DesktopNav from "./Navigation/DesktopNav";
-import MobileNav from "./Navigation/MobileNav";
 import UserProfileButton from "./UserProfileButton";
-import CartButton from "./CartButton";
+import BurgerMenu from "../navigation/BurgerMenu";
+import DesktopNav from "../navigation/DesktopNav";
+import MobileNav from "../navigation/MobileNav";
+import CartButton from "../cart/CartButton";
+
 export default function Header() {
-	const isMobile = useSelector((state: RootState) => state.deviceType.isMobile);
+	const isMobile = useIsMobile();
 	const [mobileNavIsActive, setMobileNavIsActive] = useState(false);
 
 	const showMobileNavHandler = () => {

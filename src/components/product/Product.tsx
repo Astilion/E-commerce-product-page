@@ -1,10 +1,16 @@
-import ProductDetailsSection from "./product-detail-section/ProductDetailsSection";
-import ImageSection from "./images-section/ImageSection";
-export default function Product() {
+import { Product as ProductType } from "../../types/product";
+import ProductGallery from "./gallery/ProductGallery";
+import ProductDetailsSection from "./details/ProductDetailsSection";
+
+interface ProductProps {
+	product: ProductType;
+}
+
+export default function Product({ product }: ProductProps) {
 	return (
 		<>
-			<ImageSection />
-			<ProductDetailsSection />
+			<ProductGallery images={product.images} thumbnails={product.thumbnails} />
+			<ProductDetailsSection product={product} />
 		</>
 	);
 }

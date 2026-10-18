@@ -1,42 +1,39 @@
 import Modal from "../../ui/Modal";
-import NextButton from "./buttons/NextButton";
+import SliderButton from "./SliderButton";
 import ImageSlider from "./ImageSlider";
-import PrevButton from "./buttons/PrevButton";
 import ThumbnailList from "./ThumbnailList";
 import CloseIcon from "../../ui/icons/CloseIcon";
 
-interface GalleryPopupProps {
-	onClose: () => void;
-	prevImageHandler: () => void;
-	nextImageHandler: () => void;
-	currentIndex: number;
+interface GalleryLightboxProps {
 	images: string[];
 	thumbnails: string[];
+	currentIndex: number;
+	onPrev: () => void;
+	onNext: () => void;
 	onThumbnailClick: (index: number) => void;
-	activeIndex: number;
+	onClose: () => void;
 }
 
-export default function GalleryPopup({
-	onClose,
-	prevImageHandler,
-	nextImageHandler,
+export default function GalleryLightbox({
 	images,
-	currentIndex,
 	thumbnails,
+	currentIndex,
+	onPrev,
+	onNext,
 	onThumbnailClick,
-	activeIndex,
-}: GalleryPopupProps) {
+	onClose,
+}: GalleryLightboxProps) {
 	return (
 		<Modal onClose={onClose}>
 			<div className='flex w-full justify-center items-center lg:rounded-2xl z-[90]'>
 				<div className='absolute flex w-[60%] xl:w-[40%] 2xl:w-[33%]'>
-					<PrevButton onClick={prevImageHandler} />
-					<NextButton onClick={nextImageHandler} />
+					<SliderButton direction='prev' onClick={onPrev} />
+					<SliderButton direction='next' onClick={onNext} />
 				</div>
 				<div className='relative flex w-[60%] xl:w-[40%] 2xl:w-[33%] '>
 					<button
 						onClick={onClose}
-						aria-label='Close Gallery popup icon'
+						aria-label='Close gallery'
 						className='absolute -top-12 right-1 z-[90]  p-4'>
 						<CloseIcon iconColor={"white"} />
 					</button>
@@ -49,7 +46,7 @@ export default function GalleryPopup({
 				<ThumbnailList
 					thumbnails={thumbnails}
 					onThumbnailClick={onThumbnailClick}
-					activeIndex={activeIndex}
+					activeIndex={currentIndex}
 				/>
 			</div>
 		</Modal>

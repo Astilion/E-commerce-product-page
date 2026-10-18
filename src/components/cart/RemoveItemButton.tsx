@@ -1,13 +1,13 @@
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../../store/cart-slice";
-import trash from "../../../assets/icon-delete.svg";
+import { useAppDispatch } from "../../store/hooks";
+import { cartActions } from "../../store/cartSlice";
+import trash from "../../assets/icon-delete.svg";
 
-interface RemoveItemBtnProps {
+interface RemoveItemButtonProps {
 	id: string;
 	name: string;
 }
-export default function RemoveItemBtn({ id, name }: RemoveItemBtnProps) {
-	const dispatch = useDispatch();
+export default function RemoveItemButton({ id, name }: RemoveItemButtonProps) {
+	const dispatch = useAppDispatch();
 
 	const removeItemFromCartHandler = () => {
 		dispatch(cartActions.removeItemsFromCart({ id, quantity: 1 }));

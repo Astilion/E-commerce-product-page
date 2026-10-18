@@ -1,41 +1,49 @@
-import ProductDetails, { productDetails } from "./ProductDetails";
-import ProductPricing, { pricing } from "./ProductPricing";
-import ProductQuantityControl from "./ProductQuantityControl";
-import cartIcon from "../../../assets/icon-cart-white.svg";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../../store/cart-slice";
-import { calculateTotalPrice } from "../../../utils/priceUtils";
-import { THUMBNAILS } from "../images-section/ImageSection";
+import { Product } from "../../../types/product";
+import { useAppDispatch } from "../../../store/hooks";
+import { cartActions } from "../../../store/cartSlice";
+import { calculateDiscountedPrice } from "../../../utils/price";
+import ProductInfo from "./ProductInfo";
+import ProductPricing from "./ProductPricing";
+import QuantityControl from "./QuantityControl";
+import cartIcon from "../../../assets/icon-cart-white.svg";
 
-export default function ProductDetailsSection() {
+interface ProductDetailsSectionProps {
+	product: Product;
+}
+
+export default function ProductDetailsSection({
+	product,
+}: ProductDetailsSectionProps) {
 	const [itemQuantity, setItemQuantity] = useState(1);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const incrementQuantity = () =>
 		setItemQuantity(prevQuantity => prevQuantity + 1);
 	const decrementQuantity = () =>
 		setItemQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
 
-	const totalPrice = calculateTotalPrice(pricing.price, pricing.discount);
-
 	const handleAddToCart = () => {
 		dispatch(
 			cartActions.addProductToCart({
-				id: productDetails.name,
-				name: productDetails.name,
-				price: totalPrice,
+				id: product.id,
+				name: product.name,
+				price: calculateDiscountedPrice(product.price, product.discount),
 				quantity: itemQuantity,
-				imgUrl: THUMBNAILS[0],
+				imgUrl: product.thumbnails[0],
 			})
 		);
 		setItemQuantity(1);
 	};
 	return (
 		<section className='p-6 lg:p-10 flex flex-col lg:justify-center lg:mb-40'>
-			<ProductDetails />
-			<ProductPricing />
+			<ProductInfo
+				brand={product.brand}
+				name={product.name}
+				description={product.description}
+			/>
+			<ProductPricing price={product.price} discount={product.discount} />
 			<div className='lg:flex lg:gap-4'>
-				<ProductQuantityControl
+				<QuantityControl
 					itemQuantity={itemQuantity}
 					incrementQuantity={incrementQuantity}
 					decrementQuantity={decrementQuantity}

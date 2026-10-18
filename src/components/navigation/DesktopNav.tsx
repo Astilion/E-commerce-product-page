@@ -2,7 +2,7 @@ import NavList from "./NavList";
 
 export default function DesktopNav() {
 	return (
-		<nav className='lg:block'>
+		<nav aria-label='Main'>
 			<NavList />
 		</nav>
 	);

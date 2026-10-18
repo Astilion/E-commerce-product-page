@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import Cart from "./cart/Cart";
+import Cart from "./Cart";
 import cartIcon from "../../assets/icon-cart.svg";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/hooks";
 
 export default function CartButton() {
 	const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -12,9 +11,7 @@ export default function CartButton() {
 		setCartIsOpen(prev => !prev);
 	};
 
-	const cartItemsQuantity = useSelector(
-		(state: RootState) => state.cart.totalQuantity
-	);
+	const cartItemsQuantity = useAppSelector(state => state.cart.totalQuantity);
 
 	useEffect(() => {
 		if (cartItemsQuantity > 0) {

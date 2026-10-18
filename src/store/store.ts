@@ -1,9 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import deviceTypeReducer from "./deviceType-slice";
-import cartReducer from "./cart-slice";
+import cartReducer from "./cartSlice";
+
 export const store = configureStore({
 	reducer: {
-		deviceType: deviceTypeReducer,
 		cart: cartReducer,
 	},
 });
