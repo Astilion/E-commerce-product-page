@@ -8,28 +8,26 @@ import { cartActions } from "../../../store/cart-slice";
 import { calculateTotalPrice } from "../../../utils/priceUtils";
 import { THUMBNAILS } from "../images-section/ImageSection";
 
-export default function ProductDetailSection() {
+export default function ProductDetailsSection() {
 	const [itemQuantity, setItemQuantity] = useState(1);
 	const dispatch = useDispatch();
 	const incrementQuantity = () =>
 		setItemQuantity(prevQuantity => prevQuantity + 1);
 	const decrementQuantity = () =>
-		setItemQuantity(prevQuantity => (prevQuantity > 0 ? prevQuantity - 1 : 0));
+		setItemQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
 
 	const totalPrice = calculateTotalPrice(pricing.price, pricing.discount);
 
 	const handleAddToCart = () => {
-		if (itemQuantity > 0) {
-			dispatch(
-				cartActions.addProductToCart({
-					id: productDetails.name,
-					name: productDetails.name,
-					price: pricing.discount ? totalPrice : pricing.price,
-					quantity: itemQuantity,
-					imgUrl: THUMBNAILS[0],
-				})
-			);
-		}
+		dispatch(
+			cartActions.addProductToCart({
+				id: productDetails.name,
+				name: productDetails.name,
+				price: totalPrice,
+				quantity: itemQuantity,
+				imgUrl: THUMBNAILS[0],
+			})
+		);
 		setItemQuantity(1);
 	};
 	return (
@@ -45,7 +43,7 @@ export default function ProductDetailSection() {
 				<button
 					className='bg-orange-500 flex w-full px-4 py-3 items-center justify-center rounded-md my-2 gap-3 hover:bg-orange-400 focus:bg-orange-400 duration-200 lg:w-3/4'
 					onClick={handleAddToCart}>
-					<img src={cartIcon} style={{ color: "white" }} alt='' />
+					<img src={cartIcon} alt='' />
 					<span className='font-bold text-white'>Add to cart</span>
 				</button>
 			</div>

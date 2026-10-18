@@ -14,12 +14,14 @@ export default function ThumbnailList({
 				<li key={index}>
 					<button
 						onClick={() => onThumbnailClick(index)}
+						aria-label={`Show product image ${index + 1}`}
+						aria-current={activeIndex === index}
 						className={`rounded-xl overflow-hidden hover:opacity-60 duration-150 ${
 							activeIndex === index
 								? "opacity-60  border-solid border-[2px] border-orange-500"
 								: ""
 						}`}>
-						<img src={thumbnail} alt={`thumbnail image #${index + 1}`} />
+						<img src={thumbnail} alt='' />
 					</button>
 				</li>
 			))}

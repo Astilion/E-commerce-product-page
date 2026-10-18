@@ -9,13 +9,14 @@ function App() {
 
 	useEffect(() => {
 		const detectDeviceHandler = () => {
-			const isMobile = window.innerWidth < 1024 ? true : false;
+			const isMobile = window.innerWidth < 1024;
 
 			dispatch(deviceTypeActions.detectDeviceType(isMobile));
 		};
 
 		window.addEventListener("resize", detectDeviceHandler);
-	}, []);
+		return () => window.removeEventListener("resize", detectDeviceHandler);
+	}, [dispatch]);
 
 	return (
 		<>
@@ -23,12 +24,25 @@ function App() {
 			<Wrapper>
 				<Product />
 			</Wrapper>
-			<div>
-				<a href='https://www.frontendmentor.io?ref=challenge' target='_blank'>
+			<footer className='py-6 text-center text-sm text-slate-500'>
+				Challenge by{" "}
+				<a
+					href='https://www.frontendmentor.io?ref=challenge'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='text-orange-500 hover:underline'>
 					Frontend Mentor
 				</a>
-				. Coded by <a href='https://github.com/Astilion'>Mateusz Kamiński</a>.
-			</div>
+				. Coded by{" "}
+				<a
+					href='https://github.com/Astilion'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='text-orange-500 hover:underline'>
+					Mateusz Kamiński
+				</a>
+				.
+			</footer>
 		</>
 	);
 }

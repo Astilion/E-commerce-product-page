@@ -10,17 +10,19 @@ export default function ProductPricing() {
 	return (
 		<div className='flex justify-between my-4'>
 			<div className='flex gap-5 items-center'>
-				<h3 className='font-bold text-2xl lg:text-3xl'>
+				<p className='font-bold text-2xl lg:text-3xl'>
 					${formatPrice(totalPrice)}
-				</h3>
+				</p>
 				{isDiscount && (
 					<span className='text-orange-500 font-bold rounded-md px-2 py-1  bg-orange-200 text-sm'>
-						50%
+						{discount}%
 					</span>
 				)}
 			</div>
 			{isDiscount && (
-				<span className='font-bold text-gray-400 line-through'>${price}</span>
+				<span className='font-bold text-gray-400 line-through'>
+					${formatPrice(price)}
+				</span>
 			)}
 		</div>
 	);

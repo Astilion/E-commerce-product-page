@@ -30,8 +30,12 @@ export default function CartButton() {
 
 	return (
 		<div>
-			<button className='p-2 relative' onClick={toggleCart}>
-				<img src={cartIcon} alt='Cart' />
+			<button
+				className='p-2 relative'
+				onClick={toggleCart}
+				aria-label={`Cart, ${cartItemsQuantity} items`}
+				aria-expanded={cartIsOpen}>
+				<img src={cartIcon} alt='' />
 				{cartItemsQuantity > 0 && (
 					<span
 						className={`bg-orange-500 rounded-[100%] px-[8px] absolute top-0 right-0 text-[10px] text-white font-bold ${

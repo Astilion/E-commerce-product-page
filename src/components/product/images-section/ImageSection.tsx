@@ -48,7 +48,7 @@ export default function ImageSection() {
 		setPopupVisible(false);
 	};
 	const showPopupHandler = () => {
-		!isMobile && setPopupVisible(true);
+		setPopupVisible(true);
 	};
 	return (
 		<section>
@@ -64,20 +64,22 @@ export default function ImageSection() {
 					activeIndex={imageIndex}
 				/>
 			)}
-			<button
-				aria-label='Show product carousel'
-				className='cursor-default lg:cursor-pointer'
-				onClick={showPopupHandler}>
-				<div className='w-full relative overflow-hidden md:rounded-2xl '>
-					{isMobile && (
-						<>
-							<PrevButton onClick={prevImageHandler} />
-							<NextButton onClick={nextImageHandler} />
-						</>
-					)}
-					<ImageSlider images={IMAGES} currentIndex={imageIndex} />
-				</div>
-			</button>
+			<div className='w-full relative overflow-hidden md:rounded-2xl'>
+				{isMobile ? (
+					<>
+						<PrevButton onClick={prevImageHandler} />
+						<NextButton onClick={nextImageHandler} />
+						<ImageSlider images={IMAGES} currentIndex={imageIndex} />
+					</>
+				) : (
+					<button
+						aria-label='Open product gallery'
+						className='block w-full cursor-pointer'
+						onClick={showPopupHandler}>
+						<ImageSlider images={IMAGES} currentIndex={imageIndex} />
+					</button>
+				)}
+			</div>
 			{!isMobile && (
 				<ThumbnailList
 					thumbnails={THUMBNAILS}

@@ -11,7 +11,7 @@ export default function ImageSlider({
 			className='flex w-full h-full duration-300 ease-in-out '
 			style={{ transform: `translateX(${-100 * currentIndex}%)` }}>
 			{images.map((url, index) => (
-				<img src={url} key={index} alt={`image #${index + 1}`} />
+				<img src={url} key={index} alt={`Product image ${index + 1} of ${images.length}`} />
 			))}
 		</div>
 	);

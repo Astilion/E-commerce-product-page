@@ -18,7 +18,7 @@ export default function Cart() {
 							<div className='w-14 h-14 rounded-md'>
 								<img
 									src={imgUrl}
-									alt='Product image'
+									alt={name}
 									className='w-full h-full rounded-md'
 								/>
 							</div>
@@ -35,7 +35,7 @@ export default function Cart() {
 							</div>
 						</a>
 						<div className='flex items-center justify-center ml-6'>
-							<RemoveItemBtn id={id} />
+							<RemoveItemBtn id={id} name={name} />
 						</div>
 					</li>
 				);
@@ -54,13 +54,13 @@ export default function Cart() {
 	} else {
 		content = (
 			<div className='flex justify-center items-center font-bold h-[168px]'>
-				<h3 className='text-slate-500 font bold'>Your cart is empty</h3>
+				<h3 className='text-slate-500'>Your cart is empty</h3>
 			</div>
 		);
 	}
 	return (
 		<motion.section
-			className='absolute w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2 bg-white'
+			className='absolute w-[95%] max-w-[370px] flex flex-col left-0 right-0  mx-auto rounded-lg top-24 shadow-lg  py-2 sm:ml-auto sm:mr-4 lg:mt-2 bg-white'
 			variants={{
 				hidden: { opacity: 0, y: -30 },
 				visible: { opacity: 1, y: 0 },

@@ -17,7 +17,7 @@ export default function NavList({ isActive }: NavListProps) {
 	];
 
 	const anchorClasses =
-		"py-2  px-4 font-bold lg:pb-[39px] lg:px-2 lg:py-2 lg:border-b-4  lg:relative lg:ml-4  lg:hover:border-orange-400 lg:focus:border-orange-400 hover:text-black focus:text-black text-slate-700 transition lg:inline z-100";
+		"py-2  px-4 font-bold lg:pb-[39px] lg:px-2 lg:py-2 lg:border-b-4  lg:relative lg:ml-4  lg:hover:border-orange-400 lg:focus:border-orange-400 hover:text-black focus:text-black text-slate-700 transition lg:inline";
 
 	const mobileUlClasses = isMobile
 		? "flex absolute mt-14 flex-col gap-4 duration-300"
@@ -28,8 +28,8 @@ export default function NavList({ isActive }: NavListProps) {
 	const ulClasses = `${mobileUlClasses} ${translateXClass} lg:flex lg:flex-row lg:relative gap-4`;
 	return (
 		<ul className={ulClasses}>
-			{navNames.map((name, index) => (
-				<li key={index}>
+			{navNames.map(name => (
+				<li key={name}>
 					<a href='#' className={anchorClasses}>
 						{capitalizeFirstLetter(name)}
 					</a>

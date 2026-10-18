@@ -1,12 +1,12 @@
 import avatar from "../../assets/image-avatar.png";
 export default function UserProfileButton() {
 	return (
-		<div className='full w-max'>
-			<button className='py-1 px-3'>
+		<div className='w-max'>
+			<button className='py-1 px-3' aria-label='User profile'>
 				<img
 					src={avatar}
 					className='w-10 lg:w-14 border-solid border-transparent border-2 rounded-full hover:border-orange-400 focus:border-orange-400 focus:border-[3px] hover:border-[3px] transition'
-					alt='User Profile'
+					alt=''
 				/>
 			</button>
 		</div>
