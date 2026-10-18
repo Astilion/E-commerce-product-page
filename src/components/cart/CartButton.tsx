@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Cart from "./Cart";
 import cartIcon from "../../assets/icon-cart.svg";
 import { useAppSelector } from "../../store/hooks";
@@ -6,6 +6,7 @@ import { useAppSelector } from "../../store/hooks";
 export default function CartButton() {
 	const [cartIsOpen, setCartIsOpen] = useState(false);
 	const [animate, setAnimate] = useState(false);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	const toggleCart = () => {
 		setCartIsOpen(prev => !prev);
@@ -25,8 +26,29 @@ export default function CartButton() {
 		}
 	}, [cartItemsQuantity]);
 
+	// Close the cart on Escape or on a click outside of it
+	useEffect(() => {
+		if (!cartIsOpen) return;
+
+		const keyDownHandler = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setCartIsOpen(false);
+		};
+		const pointerDownHandler = (event: PointerEvent) => {
+			if (!containerRef.current?.contains(event.target as Node)) {
+				setCartIsOpen(false);
+			}
+		};
+
+		document.addEventListener("keydown", keyDownHandler);
+		document.addEventListener("pointerdown", pointerDownHandler);
+		return () => {
+			document.removeEventListener("keydown", keyDownHandler);
+			document.removeEventListener("pointerdown", pointerDownHandler);
+		};
+	}, [cartIsOpen]);
+
 	return (
-		<div>
+		<div ref={containerRef}>
 			<button
 				className='p-2 relative'
 				onClick={toggleCart}

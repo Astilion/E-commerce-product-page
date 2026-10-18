@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useIsMobile } from "../../../hooks/useMediaQuery";
 
 import SliderButton from "./SliderButton";
@@ -20,17 +20,22 @@ export default function ProductGallery({
 	const [imageIndex, setImageIndex] = useState(0);
 	const [lightboxIsVisible, setLightboxIsVisible] = useState(false);
 
-	const nextImageHandler = () => {
+	// Stable references, because the lightbox subscribes to keyboard events with them
+	const nextImageHandler = useCallback(() => {
 		setImageIndex(prevIndex =>
 			prevIndex === images.length - 1 ? 0 : prevIndex + 1
 		);
-	};
+	}, [images.length]);
 
-	const prevImageHandler = () => {
+	const prevImageHandler = useCallback(() => {
 		setImageIndex(prevIndex =>
 			prevIndex === 0 ? images.length - 1 : prevIndex - 1
 		);
-	};
+	}, [images.length]);
+
+	const hideLightboxHandler = useCallback(() => {
+		setLightboxIsVisible(false);
+	}, []);
 
 	return (
 		<section>
@@ -42,7 +47,7 @@ export default function ProductGallery({
 					onPrev={prevImageHandler}
 					onNext={nextImageHandler}
 					onThumbnailClick={setImageIndex}
-					onClose={() => setLightboxIsVisible(false)}
+					onClose={hideLightboxHandler}
 				/>
 			)}
 			<div className='w-full relative overflow-hidden md:rounded-2xl'>

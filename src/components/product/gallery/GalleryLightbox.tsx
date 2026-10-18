@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Modal from "../../ui/Modal";
 import SliderButton from "./SliderButton";
 import ImageSlider from "./ImageSlider";
@@ -23,6 +24,15 @@ export default function GalleryLightbox({
 	onThumbnailClick,
 	onClose,
 }: GalleryLightboxProps) {
+	useEffect(() => {
+		const keyDownHandler = (event: KeyboardEvent) => {
+			if (event.key === "ArrowLeft") onPrev();
+			if (event.key === "ArrowRight") onNext();
+		};
+		document.addEventListener("keydown", keyDownHandler);
+		return () => document.removeEventListener("keydown", keyDownHandler);
+	}, [onPrev, onNext]);
+
 	return (
 		<Modal onClose={onClose}>
 			<div className='flex w-full justify-center items-center lg:rounded-2xl z-[90]'>
