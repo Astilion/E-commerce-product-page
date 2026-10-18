@@ -67,9 +67,8 @@ src/
 
 - **Redux Toolkit for the cart.** The cart state is shared between the product section (adding items) and the header (counter and dropdown). The reducer logic is covered by unit tests.
 - **Product data separated from components.** Components receive the product through props, so adding more products later only means adding data.
-- **Responsive behaviour through `matchMedia`.** The `useIsMobile` hook uses `useSyncExternalStore` instead of a `resize` listener, so it only updates when the breakpoint actually changes.
+- **Responsive behaviour through `matchMedia`.** The `useIsMobile` hook uses `useSyncExternalStore` instead of a `resize` listener, so it only updates when the breakpoint actually changes
 - **Lightbox rendered in a portal.** The gallery modal is rendered with `createPortal` outside the main layout, which avoids z-index and overflow issues.
-- **CSS transform slider.** The slider moves a single row of images with `translateX`, without any external carousel library.
 
 ## Possible improvements
 
